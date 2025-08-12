@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="favicon.ico" type="https://img.freepik.com/vector-premium/icono-vehiculo-coche_24908-22413.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xFer Dealer - Venta de Vehículos Premium</title>
+    
+
+    <!-- Metadatos para SEO y SEM -->
+    <meta name="description" content="GarageOnline, la mejor plataforma para comprar vehículos nuevos y usados. Explora nuestro catálogo y encuentra el coche de tus sueños.">
+    <meta name="keywords" content="comprar coche, venta de vehículos, ecommerce, autos, GarageOnline, coches de lujo, deportivos">
+    <meta name="author" content="GarageOnline Dev Team">
+    <link rel="canonical" href="https://[TU-DOMINIO-AQUI].com/">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Font Awesome 6.5.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= Header y Navegación ================= -->
+    <header role="banner">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Navegación principal">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="#inicio"><i class="fas fa-car" aria-hidden="true"></i> xFer Garage Online</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#vehiculos">Nuestros Vehículos</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex mx-auto" role="search">
+                        <input id="searchInput" class="form-control me-2" type="search" placeholder="Buscar por marca, modelo..." aria-label="Campo de búsqueda de vehículos">
+                    </form>
+                    <div class="d-flex align-items-center">
+                        <button id="cartButton" type="button" class="btn btn-outline-light position-relative" data-bs-toggle="modal" data-bs-target="#cartModal" aria-label="Abrir carrito de compras">
+                            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                            <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= Contenido Principal ================= -->
+    <main role="main">
+        
+
+        <!-- Sección de Bienvenida con Imagen de Fondo -->
+        <section id="inicio" class="hero-section d-flex align-items-center justify-content-center text-center">
+            <div class="container">
+                <h1 class="display-3 text-white">Bienvenido a xFer Garage Online</h1>
+                <p class="lead text-white">Tu próximo vehículo está a solo un clic de distancia.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Vehículos -->
+        <section id="vehiculos" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Nuestros Vehículos</h2>
+                
+                <!-- Spinner de Carga -->
+                <div id="loadingSpinner" class="text-center">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Cargando vehículos...</span>
+                    </div>
+                    <p class="text-light mt-2">Cargando...</p>
+                </div>
+
+                <!-- Contenedor para las Tarjetas de Vehículos -->
+                <div id="productsContainer" class="row">
+                    <!-- Las tarjetas de los vehículos se insertarán aquí dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer class="py-5">
+        <div class="container text-center">
+            <!-- Sección de Contacto -->
+            <div class="footer-section">
+                <h5>Contacto</h5>
+                <p><i class="fas fa-map-marker-alt me-2"></i>Calle Jirasol 123, Ciudad Metrópolis</p>
+                <a href="https://wa.me/1234567890?text=Hola!%20Estoy%20interesado%20en%20un%20vehículo." target="_blank" class="btn btn-contact-whatsapp">
+                    <i class="fab fa-whatsapp me-2"></i>Contáctanos
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Calle+Ficticia+123+Ciudad+Metropolis" target="_blank" class="btn btn-contact-location">
+                    <i class="fas fa-location-arrow me-2"></i>Ver Ubicación
+                </a>
+            </div>
+            <!-- Sección de Redes Sociales -->
+            <div class="footer-section">
+                <h5>Síguenos</h5>
+                <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <!-- Sección de Copyright -->
+            <div class="footer-section">
+                <h5> xFer Garage Online</h5>
+                <p class="mb-0">&copy; 2025 xFer Garage Online. Todos lo que te puedas imaginar.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ================= Modales de Bootstrap ================= -->
+
+    <!-- Modal: Seleccionar Cantidad -->
+    <div class="modal fade" id="quantityModal" tabindex="-1" aria-labelledby="quantityModalLabel" aria-hidden="true" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quantityModalLabel">Seleccionar Cantidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Cuántas unidades de este vehículo deseas añadir?</p>
+                    <input type="number" id="quantityInput" class="form-control" value="1" min="1" aria-label="Cantidad">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="confirmAddToCartBtn" class="btn btn-primary">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Carrito de Compras -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <!-- Items del carrito se insertarán aquí -->
+                    </div>
+                    <hr>
+                    <div class="text-end">
+                        <h4>Total: <span id="cartTotal" class="price-text">$0</span></h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Viendo</button>
+                    <button type="button" id="checkoutBtn" class="btn btn-success">Pagar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Formulario de Pago -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Formulario de Pago</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="paymentForm">
+                        <div class="mb-3">
+                            <label for="customerName" class="form-label">Nombre Completo</label>
+                            <input type="text" id="customerName" class="form-control" required aria-required="true">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                            <input type="text" id="cardNumber" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX" required aria-required="true">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cardExpiry" class="form-label">Fecha de Vencimiento</label>
+                                <input type="text" id="cardExpiry" class="form-control" placeholder="MM/AA" required aria-required="true">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="cardCVC" class="form-label">CVC</label>
+                                <input type="text" id="cardCVC" class="form-control" placeholder="123" required aria-required="true">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="processPaymentBtn" class="btn btn-primary">Procesar Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <!-- jsPDF para generar facturas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Bootstrap 5.3.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Script Personalizado -->
+    <script src="script.js"></script>
+
+</body>
+</html>
